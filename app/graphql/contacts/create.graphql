@@ -1,0 +1,20 @@
+mutation create_contact(
+  $email: String!
+  $message: String!
+  $reason: String!
+  $dob: String!
+) {
+  model_create(
+    model: {
+      model_schema_name: "contact"
+      properties: [
+              { name: "email" value: $email }
+              { name: "message" value: $message }
+              { name: "reason" value: $reason }
+              { name: "dob" value: $dob }
+            ]
+    }
+  ){
+    id properties
+  }
+}
