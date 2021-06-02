@@ -969,6 +969,10 @@ en:
           payments: Payments
           account: Account
           other: Other
+        attributes:
+          att-one: Attribute 1
+          att-two: Attribute 2
+          att-three: Attribute 3
         contact-us: Contact Us
         message_sent: Message sent. We will contact with you shortly.
         message-explain: >-
@@ -979,6 +983,7 @@ en:
           message: Message
           reason: Subject
           dob: Date of birth
+          attributes: Attributes
           submit: Send message
       categories:
         new: New category

@@ -27,6 +27,7 @@
       </div>
       {% include 'theme/simple/field_error', errors: object.errors.email %}
     </div>
+
     <div class="mb-6 md:flex md:items-start md:mb-10">
       <div class="mb-2 md:mb-0 md:w-56 md:mr-8 md:min-w-0 md:flex-shrink-0">
         <label class="block text-lg font-bold md:text-xl" for="form-properties-attributes-reason">
@@ -80,6 +81,28 @@
         <input type="date" value="" name="contact[dob]" id="form-properties-attributes-dob" class="w-full form-input disabled:opacity-50 " placeholder="Date of birth" required="" aria-describedby="form-properties-attributes-dob-desc">
       </div>
       {% include 'theme/simple/field_error', errors: object.errors.dob %}
+    </div>
+
+    <div class="mb-6 md:flex md:items-start md:mb-10">
+      <div class="mb-2 md:mb-0 md:w-56 md:mr-8 md:min-w-0 md:flex-shrink-0">
+        <label class="block text-lg font-bold md:text-xl" for="form-properties-attributes-reason">
+          {{ 'app.models.contacts.form.attributes' | t }}
+        </label>
+      </div>
+      <div class="md:flex-grow md:min-w-0">
+        <select name="contact[attribute]" id="form-properties-attributes" class="w-full form-select disabled:opacity-50 " required="" aria-describedby="form-properties-attributes-desc"><option value="">Select attributes...</option>
+          <option value="att_one">
+            {{ 'app.models.contacts.attributes.att-one' | t }}
+          </option>
+          <option value="att_two">
+            {{ 'app.models.contacts.attributes.att-two' | t }}
+          </option>
+          <option value="att_three">
+            {{ 'app.models.contacts.attributes.att-three' | t }}
+          </option>
+        </select>
+      </div>
+      {% include 'theme/simple/field_error', errors: object.errors.reason %}
     </div>
 
     <p class="md:ml-64">

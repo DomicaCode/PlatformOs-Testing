@@ -3,6 +3,7 @@ mutation create_contact(
   $message: String!
   $reason: String!
   $dob: String!
+  $attribute: String!
 ) {
   model_create(
     model: {
@@ -12,6 +13,7 @@ mutation create_contact(
               { name: "message" value: $message }
               { name: "reason" value: $reason }
               { name: "dob" value: $dob }
+              { name: "attribute" value: $attribute }
             ]
     }
   ){

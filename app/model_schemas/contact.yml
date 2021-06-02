@@ -8,3 +8,5 @@ properties:
     type: string
   - name: dob
     type: string
+  - name: attribute
+    type: string

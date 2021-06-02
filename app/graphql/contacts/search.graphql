@@ -5,6 +5,7 @@ query search(
   $message: String
   $reason: String
   $dob: String
+  $attribute: String
 ) {
   contacts: records(
     per_page: $limit
@@ -16,6 +17,7 @@ query search(
               { name: "message" value: $message }
               { name: "reason" value: $reason }
               { name: "dob" value: $dob }
+              { name: "attribute" value: $attribute }
             ]
     }
     sort: [
@@ -32,6 +34,7 @@ query search(
           message: property(name: "message")
           reason: property(name: "reason")
           dob: property(name: "dob")
+          attribute: property(name: "attribute")
         }
   }
 }
