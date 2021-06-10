@@ -32,6 +32,8 @@ query search(
       first_name: property(name: "first_name")
       last_name: property(name: "last_name")
       bio: property(name: "bio")
+      dob: property(name: "dob")
+      attribute: property(name: "attribute")
 
       followed_ids: related_records(
         table: "relationship"

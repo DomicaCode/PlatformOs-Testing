@@ -23,7 +23,11 @@
         </label>
       </div>
       <div class="md:flex-grow md:min-w-0">
-        <input type="email" value="" name="contact[email]" id="form-properties-attributes-email" class="w-full form-input disabled:opacity-50 " placeholder="Email" required="" aria-describedby="form-properties-attributes-email-desc">
+        {% if current_profile %}
+          <input type="email" value={{current_profile.user.email}} name="contact[email]" id="form-properties-attributes-email" class="w-full form-input disabled:opacity-50 " aria-describedby="form-properties-attributes-email-desc">
+        {% else %}
+          <input type="email" value="" name="contact[email]" id="form-properties-attributes-email" class="w-full form-input disabled:opacity-50 " placeholder="Email" required="" aria-describedby="form-properties-attributes-email-desc">
+        {% endif %}
       </div>
       {% include 'theme/simple/field_error', errors: object.errors.email %}
     </div>
@@ -78,7 +82,11 @@
         </label>
       </div>
       <div class="md:flex-grow md:min-w-0">
-        <input type="date" value="" name="contact[dob]" id="form-properties-attributes-dob" class="w-full form-input disabled:opacity-50 " placeholder="Date of birth" required="" aria-describedby="form-properties-attributes-dob-desc">
+        {% if current_profile.dob %}
+          <input type="date" value="{{current_profile.dob}}" name="contact[dob]" id="form-properties-attributes-dob" class="w-full form-input disabled:opacity-50 " placeholder="Date of birth" aria-describedby="form-properties-attributes-dob-desc">
+        {% else %}
+          <input type="date" value="" name="contact[dob]" id="form-properties-attributes-dob" class="w-full form-input disabled:opacity-50 " placeholder="Date of birth" required="" aria-describedby="form-properties-attributes-dob-desc">
+        {% endif %}
       </div>
       {% include 'theme/simple/field_error', errors: object.errors.dob %}
     </div>
@@ -91,15 +99,38 @@
       </div>
       <div class="md:flex-grow md:min-w-0">
         <select name="contact[attribute]" id="form-properties-attributes" class="w-full form-select disabled:opacity-50 " required="" aria-describedby="form-properties-attributes-desc"><option value="">Select attributes...</option>
+
+          {% if current_profile.attribute == "att_one" %}
+          <option value="att_one" selected>
+            {{ 'app.models.contacts.attributes.att-one' | t }}
+          </option>
+        {% else %}
           <option value="att_one">
             {{ 'app.models.contacts.attributes.att-one' | t }}
           </option>
+        {% endif %}
+        
+        {% if current_profile.attribute == "att_two" %}
+          <option value="att_two" selected>
+            {{ 'app.models.contacts.attributes.att-two' | t }}
+          </option>
+        {% else %}
           <option value="att_two">
             {{ 'app.models.contacts.attributes.att-two' | t }}
           </option>
+        {% endif %}
+
+        {% if current_profile.attribute == "att_three" %}
+          <option value="att_three" selected>
+            {{ 'app.models.contacts.attributes.att-three' | t }}
+          </option>
+        {% else %}
           <option value="att_three">
             {{ 'app.models.contacts.attributes.att-three' | t }}
           </option>
+        {% endif %}    
+          
+
         </select>
       </div>
       {% include 'theme/simple/field_error', errors: object.errors.reason %}

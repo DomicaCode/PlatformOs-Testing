@@ -50,6 +50,51 @@
         {% render 'theme/simple/field_error', errors: object.errors.bio %}
       </div>
 
+      <div class="mb-6">
+        <label class="block mb-2 cursor-pointer" for="dob">{{ 'app.profiles.dob' | t }}</label>
+        <input id="dob" name="profile[dob]" value="{{ object.dob }}" type="date" class="w-full form-input"  autocomplete="Date of birth">
+        {% render 'theme/simple/field_error', errors: object.errors.dob %}
+      </div>
+
+      <div class="mb-6">
+        <label class="block mb-2 cursor-pointer" for="attribute">{{ 'app.profiles.attribute' | t }}</label>
+        <div class="md:flex-grow md:min-w-0">
+          <select name="profile[attribute]" id="form-properties-attributes" class="w-full form-select disabled:opacity-50 " aria-describedby="form-properties-attributes-desc"><option value="">Select attributes...</option>
+
+            {% if object.attribute == "att_one" %}
+              <option value="att_one" selected>
+                {{ 'app.profiles.attributes.att-one' | t }}
+              </option>
+            {% else %}
+              <option value="att_one">
+                {{ 'app.profiles.attributes.att-one' | t }}
+              </option>
+            {% endif %}
+            
+            {% if object.attribute == "att_two" %}
+              <option value="att_two" selected>
+                {{ 'app.profiles.attributes.att-two' | t }}
+              </option>
+            {% else %}
+              <option value="att_two">
+                {{ 'app.profiles.attributes.att-two' | t }}
+              </option>
+            {% endif %}
+
+            {% if object.attribute == "att_three" %}
+              <option value="att_three" selected>
+                {{ 'app.profiles.attributes.att-three' | t }}
+              </option>
+            {% else %}
+              <option value="att_three">
+                {{ 'app.profiles.attributes.att-three' | t }}
+              </option>
+            {% endif %}
+          </select>
+        </div>
+        {% render 'theme/simple/field_error', errors: object.errors.attribute %}
+      </div>
+
       <div class="flex mt-4">
         <button type="submit" class="text-sm button">{{ 'app.save' | t }}</button>
       </div>
