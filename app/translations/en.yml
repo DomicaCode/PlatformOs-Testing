@@ -419,6 +419,12 @@ en:
       profile_photo: Profile Photo
       incomplete: Fill your profile
       bio: Short Bio
+      dob: Date of birth
+      attribute: Attribute
+      attributes:
+        att-one: Attribute 1
+        att-two: Attribute 2
+        att-three: Attribute 3
       nav:
         activity: Activity
         groups: Groups
